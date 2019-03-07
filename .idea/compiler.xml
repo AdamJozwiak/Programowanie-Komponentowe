@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="prokomp" />
+        <module name="prokomp (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Prog Komponentowe" target="1.8" />
+      <module name="maven-archiver" target="1.5" />
+      <module name="prokomp (2)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
