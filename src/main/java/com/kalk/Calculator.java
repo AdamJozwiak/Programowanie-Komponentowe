@@ -1,20 +1,24 @@
 package com.kalk;
 
-public class Kalkulator {
+public class Calculator {
 
     public int add(int a, int b) {
+
         return a + b;
     }
 
     public double add(double a, double b) {
+
         return a + b;
     }
 
-    public int diff(int a, int b) {
+    public int diff(int a, int b)
+    {
         return a - b;
     }
 
     public double diff(double a, double b) {
+
         return a - b;
     }
 
@@ -22,7 +26,8 @@ public class Kalkulator {
         return a * b;
     }
 
-    public double mul(double a, double b) {
+    public double mul(double a, double b)
+    {
         return a * b;
     }
 
@@ -46,7 +51,7 @@ public class Kalkulator {
         // dodawanie liczb
         int a = 0; // deklaracja zmiennej
         int b = 0;
-        Kalkulator kalkulator = new Kalkulator();
+        Calculator calculator = new Calculator();
         //System.out.println(0/0);
         //int c=a/b;
         // dzielenie z instrukcja warunkowa
@@ -56,5 +61,10 @@ public class Kalkulator {
             System.out.println("Nie dzielimy przez zero!");
 
         System.out.println(2.0 / 0.0);
+
+
+        PascalTriangle pascalTriangle = new PascalTriangle();
+
+        pascalTriangle.compute1(10);
     }
 }
