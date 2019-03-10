@@ -65,6 +65,11 @@ public class Calculator {
 
         PascalTriangle pascalTriangle = new PascalTriangle();
 
-        pascalTriangle.compute1(10);
+        pascalTriangle.compute1(-3);
+        int[][] t=new int [-3][2];
+        t[-2][1]=2;
+        System.out.println(t[-2][1]);
+        //int [][] t=pascalTriangle.getTriangle();
+        //System.out.println(pascalTriangle.getTriangle());
     }
 }

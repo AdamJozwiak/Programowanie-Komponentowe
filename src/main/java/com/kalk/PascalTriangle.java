@@ -1,7 +1,8 @@
 package com.kalk;
 
 public class PascalTriangle {
-    public static void compute(int n)
+    private static int[][] triangle;
+    public static void compute1(int n)
     {
         int number = 1;
 
@@ -18,26 +19,31 @@ public class PascalTriangle {
         }
     }
 
-    public static void compute1(int n)
+    public void compute(int n)
     {
-        int[][] t = new int[n][n];
+        triangle=new int[n][];
 
         for(int i=0; i<n; i++)
         {
+            triangle[i]=new int[i+1];
             for(int j=0; j<=i; j++ )
             {
                 if(j == 0 || j == i)
                 {
-                    t[i][j] = 1;
+                    triangle[i][j] = 1;
                 }
 
                 else
                 {
-                    t[i][j] = t[i-1][j-1] + t[i-1][j];
+                    triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j];
                 }
-                System.out.print(t[i][j]);
+                //System.out.print(triangle[i][j]);
             }
-            System.out.println();
+           // System.out.println();
         }
+    }
+    public int[][] getTriangle()
+    {
+        return triangle;
     }
 }
