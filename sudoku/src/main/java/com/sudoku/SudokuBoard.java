@@ -58,9 +58,13 @@ public class SudokuBoard {
             k++;
             w = 0;
         }
-        if (k == 9) return true;
+        if (k == 9) {
+            return true;
+        }
 
-        if (board[w][k] != 0) return fillBoard(w + 1, k);
+        if (board[w][k] != 0) {
+            return fillBoard(w + 1, k);
+        }
 
         for (int num = 1; num <= 9; num++) {
 
@@ -77,7 +81,6 @@ public class SudokuBoard {
 
         return false;
 
-
     }
 
     public int[][] getBoard() {
@@ -85,7 +88,7 @@ public class SudokuBoard {
     }
 
 
-    public static void main(String args[]) {
+    public static void main(final String[] args) {
 
         SudokuBoard sudokuBoard = new SudokuBoard();
         //udokuBoard.board = new int [9][9];
