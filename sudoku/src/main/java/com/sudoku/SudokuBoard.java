@@ -1,4 +1,4 @@
-package Sudoku;
+package com.sudoku;
 
 import java.util.Random;
 
