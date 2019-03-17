@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1d7a03d-2eaa-43ad-b7f8-56dea974dc36" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../sudoku/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/prokomp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/prokomp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/src/main/java/Sudoku/SudokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/src/main/java/Sudoku/SudokuBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/src/main/main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/src/main/main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/sudoku.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/sudoku.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/target/classes/Sudoku/SudokuBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/target/classes/Sudoku/SudokuBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sudoku/target/prokomp-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../sudoku/target/prokomp-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,22 +52,30 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1980434147">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/kalk/CalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1479">
-              <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+            <state relative-caret-position="34">
+              <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kalk/Calculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
+            <state relative-caret-position="399">
               <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
             </state>
           </provider>
@@ -98,7 +116,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -138,8 +156,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="508" />
-    <option name="y" value="98" />
+    <option name="x" value="681" />
+    <option name="y" value="41" />
     <option name="width" value="960" />
     <option name="height" value="1024" />
   </component>
@@ -226,9 +244,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552232131050" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -261,9 +280,10 @@
     <option name="totallyTimeSpent" value="17055000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="508" y="98" width="960" height="1024" extended-state="0" />
+    <frame x="681" y="41" width="960" height="1024" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32777777" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -312,13 +332,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kalk/TrojkatPascala.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kalk/Kalkulator.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/com/kalk/KalkulatorTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/kalk/CalculatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kalk/PascalTriangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -335,8 +348,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kalk/Calculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
+        <state relative-caret-position="399">
           <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/kalk/CalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="22" lean-forward="true" selection-start-line="2" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -397,7 +417,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
