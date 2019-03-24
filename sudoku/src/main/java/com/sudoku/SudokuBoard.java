@@ -6,7 +6,7 @@ import java.util.Random;
 public class SudokuBoard {
     private int[][] board;
 
-    public SudokuBoard(int n){
+    public SudokuBoard(int n) {
         board = new int[9][9];
         int w, k;
         for (int i = 0; i < n; i++) {
@@ -26,20 +26,6 @@ public class SudokuBoard {
         return generator.nextInt(9) + 1;
     }
 
-    /*public void firstFill(int n) {
-        board = new int[9][9];
-        int w, k;
-        for (int i = 0; i < n; i++) {
-            do {
-                w = rand() - 1;
-                k = rand() - 1;
-            } while (board[w][k] != 0);
-
-            do {
-                board[w][k] = rand();
-            } while (!checkElement(w, k, board[w][k]));
-        }
-    }*/
 
     public boolean checkElement(int w, int k, int num) {
 
@@ -67,35 +53,6 @@ public class SudokuBoard {
         }*/
     }
 
-    /*public boolean fillBoard(int w, int k) {
-            k++;
-            w = 0;
-        }
-        if (k == 9) {
-            return true;
-        }
-
-        if (board[w][k] != 0) {
-            return fillBoard(w + 1, k);
-        }
-
-        for (int num = 1; num <= 9; num++) {
-
-            if (checkElement(w, k, num)) {
-                board[w][k] = num;
-                if (fillBoard(w + 1, k)) {
-                    return true;
-                }
-
-            }
-
-            board[w][k] = 0;
-        }
-
-        return false;
-
-    }*/
-
     public int[][] getBoard() {
         int[][] board2 = new int[9][9];
         for (int i = 0; i < 9; i++) {
@@ -106,44 +63,60 @@ public class SudokuBoard {
         return board2;
     }
 
-    public void setBoard(int w, int k, int value){
-        board[w][k]=value;
+    public void setBoard(int w, int k, int value) {
+        board[w][k] = value;
     }
 
-    public boolean checkBoard(){
-        for(int i=0;i<9;i++){
-            for(int j=0; j<9; j++){
-                if(!checkElement(i,j,board[i][j])) return false;
+    public boolean checkBoard() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (!checkElement(i, j, board[i][j])) {
+                    return false;
+                }
             }
         }
         return true;
     }
 
+    /*public void firstFill(int n) {
+        board = new int[9][9];
+        int w, k;
+        for (int i = 0; i < n; i++) {
+            do {
+                w = rand() - 1;
+                k = rand() - 1;
+            } while (board[w][k] != 0);
+            do {
+                board[w][k] = rand();
+            } while (!checkElement(w, k, board[w][k]));
+        }
+    }*/
+
+    /*public boolean fillBoard(int w, int k) {
+            k++;
+            w = 0;
+        }
+        if (k == 9) {
+            return true;
+        }
+        if (board[w][k] != 0) {
+            return fillBoard(w + 1, k);
+        }
+        for (int num = 1; num <= 9; num++) {
+            if (checkElement(w, k, num)) {
+                board[w][k] = num;
+                if (fillBoard(w + 1, k)) {
+                    return true;
+                }
+            }
+            board[w][k] = 0;
+        }
+        return false;
+    }*/
+
+
     public static void main(final String[] args) {
 
-        /*SudokuBoard sudokuBoard = new SudokuBoard();
-        //udokuBoard.board = new int [9][9];
-        sudokuBoard.firstFill(3);
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.print(sudokuBoard.board[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-        System.out.println();
-        System.out.println();
-        System.out.println();
-
-
-        sudokuBoard.fillBoard(0, 0);
-
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.print(sudokuBoard.board[i][j] + " ");
-            }
-            System.out.println();
-        }*/
         SudokuBoard sudokuBoard = new SudokuBoard(10);
 
         for (int i = 0; i < 9; i++) {
@@ -160,6 +133,7 @@ public class SudokuBoard {
 
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         backtrackingSudokuSolver.solve(sudokuBoard);
+
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 System.out.print(sudokuBoard.getBoard()[i][j] + " ");

@@ -3,7 +3,7 @@ package com.sudoku;
 import java.util.Arrays;
 
 public class BacktrackingSudokuSolver implements SudokuSolver {
-    public boolean solve(SudokuBoard sudokuBoard) {
+    public boolean solve(final SudokuBoard sudokuBoard) {
 
         /*if (w == 9) {
             k++;
@@ -23,10 +23,11 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
                 }
             }
         }
-        if (w == -1) return true;
+        if (w == -1) {
+            return true;
+        }
 
         for (int num = 1; num <= 9; num++) {
-
             if (sudokuBoard.checkElement(w, k, num)) {
                 sudokuBoard.setBoard(w, k, num);
                 if (solve(sudokuBoard)) {

@@ -7,10 +7,12 @@ import static org.junit.Assert.*;
 public class SudokuBoardTest {
 
     @Test
-    public void fillBoard() {
-        /*SudokuBoard sudokuBoard = new SudokuBoard();
-        sudokuBoard.firstFill(3);
-        sudokuBoard.fillBoard(0, 0);
+    public void solve(){
+        SudokuBoard sudokuBoard = new SudokuBoard(5);
+        BacktrackingSudokuSolver sudokuSolver = new BacktrackingSudokuSolver();
+
+        sudokuSolver.solve(sudokuBoard);
+
         boolean wartownik = false;
 
         for(int i = 0; i < 9; i++)
@@ -29,10 +31,10 @@ public class SudokuBoardTest {
         }
         assertTrue(wartownik);
 
-        SudokuBoard sudokuBoard1 = new SudokuBoard();
-        sudokuBoard1.firstFill(3);
-        sudokuBoard1.fillBoard(0,0);
+        SudokuBoard sudokuBoard1 = new SudokuBoard(5);
 
-        assertNotEquals(sudokuBoard.getBoard(), sudokuBoard1.getBoard());*/
+        sudokuSolver.solve(sudokuBoard1);
+
+        assertNotEquals(sudokuBoard.getBoard(), sudokuBoard1.getBoard());
     }
 }
