@@ -110,6 +110,14 @@ public class SudokuBoard {
         board[w][k]=value;
     }
 
+    public boolean checkBoard(){
+        for(int i=0;i<9;i++){
+            for(int j=0; j<9; j++){
+                if(!checkElement(i,j,board[i][j])) return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(final String[] args) {
 
