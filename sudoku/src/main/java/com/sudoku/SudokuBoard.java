@@ -4,20 +4,28 @@ import java.util.Random;
 
 
 public class SudokuBoard {
-    private int[][] board;
+
+    SudokuField[][] sudokuField;
 
     public SudokuBoard(int n) {
-        board = new int[9][9];
+        sudokuField = new SudokuField[9][9];
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                sudokuField[i][j] = new SudokuField();
+            }
+        }
+
         int w, k;
         for (int i = 0; i < n; i++) {
             do {
                 w = rand() - 1;
                 k = rand() - 1;
-            } while (board[w][k] != 0);
+            } while (sudokuField[w][k].getFieldValue() != 0);
 
             do {
-                board[w][k] = rand();
-            } while (!checkElement(w, k, board[w][k]));
+                sudokuField[w][k].setFieldValue(rand());
+            } while (!checkBoard());
         }
     }
 
@@ -27,50 +35,26 @@ public class SudokuBoard {
     }
 
 
-    public boolean checkElement(int w, int k, int num) {
-
-        int pom1 = (w / 3) * 3;
-        int pom2 = (k / 3) * 3;
-        for (int i = 0; i < 9; i++) {
-            if (i != w && num == board[i][k]) {
-                return false;
-            }
-            if (i != k && num == board[w][i]) {
-                return false;
-            }
-            if (num == board[pom1 + i / 3][pom2 + i % 3] && (pom1 + i / 3 != w || pom2 + i % 3 != k)) {
-                return false;
-            }
-        }
-
-        return true;
-        /*for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board[w][k] == board[pom1 + i][pom2 + j] && (pom1 + i != w || pom2 + j != k)) {
-                    return false;
-                }
-            }
-        }*/
+    public int get(int w, int k) {
+        return sudokuField[w][k].getFieldValue();
     }
 
-    public int[][] getBoard() {
-        int[][] board2 = new int[9][9];
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                board2[i][j] = board[i][j];
-            }
-        }
-        return board2;
-    }
-
-    public void setBoard(int w, int k, int value) {
-        board[w][k] = value;
+    public void set(int w, int k, int value) {
+        sudokuField[w][k].setFieldValue(value);
     }
 
     public boolean checkBoard() {
         for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (!checkElement(i, j, board[i][j])) {
+            if (!getRow(i).verify()) {
+                return false;
+            }
+            if (!getColumn(i).verify()) {
+                return false;
+            }
+        }
+        for (int i = 0; i < 9; i += 3) {
+            for (int j = 0; j < 9; j += 3) {
+                if (!getBox(i, j).verify()) {
                     return false;
                 }
             }
@@ -78,42 +62,32 @@ public class SudokuBoard {
         return true;
     }
 
-    /*public void firstFill(int n) {
-        board = new int[9][9];
-        int w, k;
-        for (int i = 0; i < n; i++) {
-            do {
-                w = rand() - 1;
-                k = rand() - 1;
-            } while (board[w][k] != 0);
-            do {
-                board[w][k] = rand();
-            } while (!checkElement(w, k, board[w][k]));
-        }
-    }*/
+    public SudokuRow getRow(int y) {
+        SudokuRow sudokuRow = new SudokuRow(sudokuField[y]);
+        return sudokuRow;
+    }
 
-    /*public boolean fillBoard(int w, int k) {
-            k++;
-            w = 0;
+    public SudokuColumn getColumn(int x) {
+        SudokuField[] column = new SudokuField[9];
+        for (int i = 0; i < 9; i++) {
+            column[i] = sudokuField[i][x];
         }
-        if (k == 9) {
-            return true;
-        }
-        if (board[w][k] != 0) {
-            return fillBoard(w + 1, k);
-        }
-        for (int num = 1; num <= 9; num++) {
-            if (checkElement(w, k, num)) {
-                board[w][k] = num;
-                if (fillBoard(w + 1, k)) {
-                    return true;
-                }
+        SudokuColumn sudokuColumn = new SudokuColumn(column);
+        return sudokuColumn;
+    }
+
+    public SudokuBox getBox(int x, int y) {
+        SudokuField[] box = new SudokuField[9];
+        int pom1 = (x / 3) * 3;
+        int pom2 = (y / 3) * 3;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                box[3 * i + j] = sudokuField[pom1 + i][pom2 + j];
             }
-            board[w][k] = 0;
         }
-        return false;
-    }*/
-
+        SudokuBox sudokuBox = new SudokuBox(box);
+        return sudokuBox;
+    }
 
     public static void main(final String[] args) {
 
@@ -121,7 +95,7 @@ public class SudokuBoard {
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                System.out.print(sudokuBoard.getBoard()[i][j] + " ");
+                System.out.print(sudokuBoard.get(i, j) + " ");
             }
             System.out.println();
 
@@ -136,7 +110,7 @@ public class SudokuBoard {
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                System.out.print(sudokuBoard.getBoard()[i][j] + " ");
+                System.out.print(sudokuBoard.get(i, j) + " ");
             }
             System.out.println();
 

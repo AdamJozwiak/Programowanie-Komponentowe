@@ -13,28 +13,13 @@ public class SudokuBoardTest {
 
         sudokuSolver.solve(sudokuBoard);
 
-        boolean wartownik = false;
 
-        for(int i = 0; i < 9; i++)
-        {
-            for(int j = 0; j < 9; j++)
-            {
-                if(sudokuBoard.checkElement(i,j, sudokuBoard.getBoard()[i][j]))
-                {
-                    wartownik = true;
-                }
-                else {
-                    wartownik = false;
-                    assertFalse(wartownik);
-                }
-            }
-        }
-        assertTrue(wartownik);
+        assertTrue(sudokuBoard.checkBoard());
 
-        SudokuBoard sudokuBoard1 = new SudokuBoard(5);
+        //SudokuBoard sudokuBoard1 = new SudokuBoard(5);
 
-        sudokuSolver.solve(sudokuBoard1);
+        //sudokuSolver.solve(sudokuBoard1);
 
-        assertNotEquals(sudokuBoard.getBoard(), sudokuBoard1.getBoard());
+       // assertNotEquals(sudokuBoard.getBoard(), sudokuBoard1.getBoard());
     }
 }

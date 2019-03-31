@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BacktrackingSudokuSolver.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sudoku</a> &gt; <a href="index.source.html" class="el_package">com.sudoku</a> &gt; <span class="el_source">BacktrackingSudokuSolver.java</span></div><h1>BacktrackingSudokuSolver.java</h1><pre class="source lang-java linenums">package com.sudoku;
+
+import java.util.Arrays;
+
+<span class="fc" id="L5">public class BacktrackingSudokuSolver implements SudokuSolver {</span>
+    public boolean solve(final SudokuBoard sudokuBoard) {
+
+
+<span class="fc" id="L9">        int w = -1, k = -1;</span>
+
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (int i = 8; i &gt;= 0; i--) {</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            for (int j = 8; j &gt;= 0; j--) {</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">                if (sudokuBoard.get(i, j) == 0) {</span>
+<span class="fc" id="L14">                    w = i;</span>
+<span class="fc" id="L15">                    k = j;</span>
+                }
+            }
+        }
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        if (w == -1) {</span>
+<span class="fc" id="L20">            return true;</span>
+        }
+
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        for (int num = 1; num &lt;= 9; num++) {</span>
+<span class="fc" id="L24">            sudokuBoard.set(w, k, num);</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            if (sudokuBoard.checkBoard()) {</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">                if (solve(sudokuBoard)) {</span>
+<span class="fc" id="L27">                    return true;</span>
+                }
+            }
+<span class="fc" id="L30">            sudokuBoard.set(w, k, 0);</span>
+        }
+<span class="fc" id="L32">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
