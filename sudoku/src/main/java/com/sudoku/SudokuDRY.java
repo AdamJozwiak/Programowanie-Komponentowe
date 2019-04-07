@@ -1,17 +1,24 @@
 package com.sudoku;
 
-public class SudokuDRY {
-    private SudokuField[] sudokuFields;
+import java.util.Arrays;
+import java.util.List;
 
-    public SudokuDRY(final SudokuField[] sudokuFields) {
-        this.sudokuFields = sudokuFields;
+public class SudokuDRY {
+    private List<SudokuField> sudokuFields;
+
+    public SudokuDRY(final List<SudokuField> sudokuFields) {
+        this.sudokuFields = Arrays.asList(new SudokuField[9]);
+
+        for (int i = 0; i < 9; i++) {
+            this.sudokuFields.set(i, sudokuFields.get(i));
+        }
     }
 
     public boolean verify() {
         for (int i = 0; i < 9; i++) {
             for (int j = i + 1; j < 9; j++) {
-                if (sudokuFields[i].getFieldValue() == sudokuFields[j].getFieldValue()
-                        && sudokuFields[i].getFieldValue() != 0) {
+                if (sudokuFields.get(i).getFieldValue() == sudokuFields.get(j).getFieldValue()
+                        && sudokuFields.get(i).getFieldValue() != 0) {
                     return false;
                 }
             }

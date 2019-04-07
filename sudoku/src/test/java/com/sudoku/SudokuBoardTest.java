@@ -13,13 +13,6 @@ public class SudokuBoardTest {
 
         sudokuSolver.solve(sudokuBoard);
 
-
         assertTrue(sudokuBoard.checkBoard());
-
-        //SudokuBoard sudokuBoard1 = new SudokuBoard(5);
-
-        //sudokuSolver.solve(sudokuBoard1);
-
-       // assertNotEquals(sudokuBoard.getBoard(), sudokuBoard1.getBoard());
     }
 }

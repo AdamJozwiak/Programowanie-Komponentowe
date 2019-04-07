@@ -1,18 +1,25 @@
 package com.sudoku;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 
 public class SudokuBoard {
 
-    SudokuField[][] sudokuField;
+    List<List<SudokuField>> sudokuField;
 
     public SudokuBoard(int n) {
-        sudokuField = new SudokuField[9][9];
+
+        sudokuField = (List) Arrays.asList(new List[9]);
+
+        for (int i = 0; i < 9; i++) {
+            sudokuField.set(i, Arrays.asList(new SudokuField[9]));
+        }
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                sudokuField[i][j] = new SudokuField();
+                sudokuField.get(i).set(j, new SudokuField());
             }
         }
 
@@ -21,10 +28,10 @@ public class SudokuBoard {
             do {
                 w = rand() - 1;
                 k = rand() - 1;
-            } while (sudokuField[w][k].getFieldValue() != 0);
+            } while (sudokuField.get(w).get(k).getFieldValue() != 0);
 
             do {
-                sudokuField[w][k].setFieldValue(rand());
+                sudokuField.get(w).get(k).setFieldValue(rand());
             } while (!checkBoard());
         }
     }
@@ -36,11 +43,11 @@ public class SudokuBoard {
 
 
     public int get(int w, int k) {
-        return sudokuField[w][k].getFieldValue();
+        return sudokuField.get(w).get(k).getFieldValue();
     }
 
     public void set(int w, int k, int value) {
-        sudokuField[w][k].setFieldValue(value);
+        sudokuField.get(w).get(k).setFieldValue(value);
     }
 
     public boolean checkBoard() {
@@ -63,35 +70,42 @@ public class SudokuBoard {
     }
 
     public SudokuRow getRow(int y) {
-        SudokuRow sudokuRow = new SudokuRow(sudokuField[y]);
-        return sudokuRow;
+        List<SudokuField> row = Arrays.asList(new SudokuField[9]);
+
+        for (int i = 0; i < row.size(); i++) {
+            row.set(i, new SudokuField(sudokuField.get(y).get(i).getFieldValue()));
+        }
+
+        return new SudokuRow(row);
     }
 
     public SudokuColumn getColumn(int x) {
-        SudokuField[] column = new SudokuField[9];
+        List<SudokuField> column = Arrays.asList(new SudokuField[9]);
         for (int i = 0; i < 9; i++) {
-            column[i] = sudokuField[i][x];
+            column.set(i, new SudokuField(sudokuField.get(i).get(x).getFieldValue()));
         }
-        SudokuColumn sudokuColumn = new SudokuColumn(column);
-        return sudokuColumn;
+
+        return new SudokuColumn(column);
     }
 
     public SudokuBox getBox(int x, int y) {
-        SudokuField[] box = new SudokuField[9];
+        List<SudokuField> box = Arrays.asList(new SudokuField[9]);
+
         int pom1 = (x / 3) * 3;
         int pom2 = (y / 3) * 3;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                box[3 * i + j] = sudokuField[pom1 + i][pom2 + j];
+                //box[3 * i + j] = sudokuField[pom1 + i][pom2 + j];
+                box.set(3 * i + j, new SudokuField(sudokuField.get(pom1 + i).get(pom2 + j).getFieldValue()));
             }
         }
-        SudokuBox sudokuBox = new SudokuBox(box);
-        return sudokuBox;
+
+        return new SudokuBox(box);
     }
 
     public static void main(final String[] args) {
 
-        SudokuBoard sudokuBoard = new SudokuBoard(10);
+        SudokuBoard sudokuBoard = new SudokuBoard(20);
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
