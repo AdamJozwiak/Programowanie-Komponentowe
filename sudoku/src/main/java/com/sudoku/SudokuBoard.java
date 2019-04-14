@@ -3,7 +3,10 @@ package com.sudoku;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class SudokuBoard {
 
@@ -103,9 +106,41 @@ public class SudokuBoard {
         return new SudokuBox(box);
     }
 
+   /* @Override
+    public String toString(){
+        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append("Board",this.sudokuField).toString();
+
+    }*/
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this,ToStringStyle.SIMPLE_STYLE).append("sudokuField", sudokuField).toString();
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+
+        if (object == null || getClass() != object.getClass()) return false;
+
+        SudokuBoard sudokuBoard=(SudokuBoard) object;
+
+        return new EqualsBuilder()
+                .append(sudokuField, sudokuBoard.sudokuField)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37).append(this.sudokuField).toHashCode();
+    }
+
+   // @Override
+
+
     public static void main(final String[] args) {
 
-        SudokuBoard sudokuBoard = new SudokuBoard(20);
+        SudokuBoard sudokuBoard = new SudokuBoard(4);
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -129,5 +164,8 @@ public class SudokuBoard {
             System.out.println();
 
         }
+        //String a=sudokuBoard.toString();
+       // int b=sudokuBoard.hashCode();
+        //System.out.println(sudokuBoard.toString());
     }
 }

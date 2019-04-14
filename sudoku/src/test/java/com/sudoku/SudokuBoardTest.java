@@ -14,5 +14,7 @@ public class SudokuBoardTest {
         sudokuSolver.solve(sudokuBoard);
 
         assertTrue(sudokuBoard.checkBoard());
+        int b=sudokuBoard.hashCode();
+        System.out.println(sudokuBoard.toString());
     }
 }

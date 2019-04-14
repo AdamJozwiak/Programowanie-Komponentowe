@@ -1,5 +1,8 @@
 package com.sudoku;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,5 +27,9 @@ public class SudokuDRY {
             }
         }
         return true;
+    }
+    @Override
+    public String toString(){
+        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append("Fields",this.sudokuFields).toString();
     }
 }
