@@ -1,5 +1,6 @@
 package com.sudoku;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -9,7 +10,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-public class SudokuBoard {
+public class SudokuBoard implements Serializable {
 
     List<List<SudokuField>> sudokuField;
 
@@ -141,6 +142,8 @@ public class SudokuBoard {
 
     public static void main(final String[] args) {
 
+
+
         SudokuBoard sudokuBoard = new SudokuBoard(4);
 
         for (int i = 0; i < 9; i++) {
@@ -165,6 +168,7 @@ public class SudokuBoard {
             System.out.println();
 
         }
+
         //String a=sudokuBoard.toString();
         // int b=sudokuBoard.hashCode();
         //System.out.println(sudokuBoard.toString());

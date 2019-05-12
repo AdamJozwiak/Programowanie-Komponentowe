@@ -9,12 +9,14 @@ public class SudokuBoardTest {
 
     @Test
     public void solve(){
+        SudokuBoardDaoFactory sudokuBoardDaoFactory=new SudokuBoardDaoFactory();
         SudokuBoard sudokuBoard = new SudokuBoard(5);
         BacktrackingSudokuSolver sudokuSolver = new BacktrackingSudokuSolver();
 
         sudokuSolver.solve(sudokuBoard);
 
         assertTrue(sudokuBoard.checkBoard());
+        sudokuBoardDaoFactory.getFileDao("C:\\Users\\Michał\\Desktop\\xd.txt").write(sudokuBoard);
        //int b=sudokuBoard.hashCode();
        // System.out.println(sudokuBoard.toString());
     }

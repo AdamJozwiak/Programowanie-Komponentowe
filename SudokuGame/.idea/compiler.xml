@@ -7,14 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ModelProject" />
-        <module name="prokomp" />
         <module name="ViewProject" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ModelProject" target="7" />
-      <module name="SudokuGameProject" target="7" />
-      <module name="ViewProject" target="7" />
-    </bytecodeTargetLevel>
   </component>
 </project>
