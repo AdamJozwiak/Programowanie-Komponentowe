@@ -15,7 +15,7 @@
             <Font name="System Bold Italic" size="34.0" />
          </font>
       </Label>
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="126.0" layoutY="64.0" prefHeight="525.0" prefWidth="548.0">
+      <GridPane fx:id="gridPane" alignment="CENTER" gridLinesVisible="true" layoutX="126.0" layoutY="64.0" prefHeight="525.0" prefWidth="548.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,13 +25,13 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -39,17 +39,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button layoutX="364.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="89.0" text="Rozwiąż">
+      <Button layoutX="361.0" layoutY="610.0" mnemonicParsing="false" onAction="#solve" prefHeight="42.0" prefWidth="95.0" text="Sprawdź">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="585.0" layoutY="610.0" mnemonicParsing="false" onAction="#menu" prefHeight="42.0" prefWidth="89.0" text="Menu">
+      <Button layoutX="126.0" layoutY="610.0" mnemonicParsing="false" onAction="#menu" prefHeight="42.0" prefWidth="89.0" text="Menu">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="126.0" layoutY="610.0" mnemonicParsing="false" onAction="#exit" prefHeight="42.0" prefWidth="89.0" text="Wyjście">
+      <Button layoutX="585.0" layoutY="610.0" mnemonicParsing="false" onAction="#exit" prefHeight="42.0" prefWidth="89.0" text="Wyjście">
          <font>
             <Font size="18.0" />
          </font>

@@ -14,6 +14,10 @@ public class MainController {
 
     @FXML
     public void initialize(){
+        menuScreen();
+    }
+
+    public void menuScreen() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/MenuScreen.fxml"));
         Pane pane = null;
         try {
@@ -29,6 +33,7 @@ public class MainController {
     }
 
     public void setScreen(Pane pane) {
+        stackPane.getChildren().clear();
         stackPane.getChildren().add(pane);
     }
 }

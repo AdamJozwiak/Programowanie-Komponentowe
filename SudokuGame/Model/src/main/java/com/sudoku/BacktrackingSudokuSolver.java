@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 public class BacktrackingSudokuSolver implements SudokuSolver {
     public boolean solve(final SudokuBoard sudokuBoard) {
-
-
         int w = -1, k = -1;
 
         for (int i = 8; i >= 0; i--) {
