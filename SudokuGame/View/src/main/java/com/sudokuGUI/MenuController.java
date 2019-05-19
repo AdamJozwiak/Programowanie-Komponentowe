@@ -13,12 +13,13 @@ public class MenuController {
     private static SudokuBoard sudokuBoard;
     private static SudokuBoard copy;
 
-    //Przyciski
+    ///////////////////////////////////////////Wybor poziomu trudnosci//////////////////////////////////////////////////
+
     @FXML
     public void latwy() {
         Latwy latwy = new Latwy();
-        copy = latwy.latwy();
-        sudokuBoard = latwy.getSudokuBoard();
+        sudokuBoard = latwy.latwy();
+        copy = latwy.getCopy();
         loadSudoku();
     }
 
@@ -43,9 +44,7 @@ public class MenuController {
         Platform.exit();
     }
 
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
+    ////////////////////////////////////////////Zaladowanie ekranu gry//////////////////////////////////////////////////
 
     public void loadSudoku() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/SudokuScreen.fxml"));
@@ -66,5 +65,9 @@ public class MenuController {
 
     public static SudokuBoard getCopy() {
         return copy;
+    }
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 }

@@ -17,6 +17,8 @@ public class MainController {
         menuScreen();
     }
 
+    ///////////////////////////////////Zaladowanie ekranu menu z pliku fxml/////////////////////////////////////////////
+
     public void menuScreen() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/MenuScreen.fxml"));
         Pane pane = null;
@@ -31,6 +33,8 @@ public class MainController {
 
         setScreen(pane);
     }
+
+    ///////////////////////////////////////////////Zmiana ekranu////////////////////////////////////////////////////////
 
     public void setScreen(Pane pane) {
         stackPane.getChildren().clear();

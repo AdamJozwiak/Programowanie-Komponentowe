@@ -17,10 +17,10 @@ public class SudokuController {
     @FXML
     private GridPane gridPane;
 
-    //Uzupelnianie Grida
+    /////////////////////////////////////////////Uzupelnianie Grida/////////////////////////////////////////////////////
     @FXML
     public void initialize(){
-        SudokuBoard sudokuBoard = MenuController.getCopy();
+        SudokuBoard sudokuBoard = MenuController.getSudokuBoard();
 
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9; j++)
@@ -35,6 +35,7 @@ public class SudokuController {
                     textField.setText("");
                 }
 
+    /////////////////////////////////////////////Dodawanie do Grida/////////////////////////////////////////////////////
                 this.gridPane.add(textField, i, j);
             }
         }
@@ -45,6 +46,7 @@ public class SudokuController {
         mainController.menuScreen();
     }
 
+    ///////////////////////////////Sprawdzanie, czy wypelnione sudoku jest poprawne/////////////////////////////////////
     @FXML
     public boolean solve() {
         TextField[][] textFields = new TextField[9][9];
@@ -58,11 +60,7 @@ public class SudokuController {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
 
-                System.out.println(MenuController.getCopy().get(i, j));
-                System.out.println(Integer.parseInt(textFields[i][j].getText()));
-                System.out.println();
-
-                if(MenuController.getSudokuBoard().get(i, j) != Integer.parseInt(textFields[i][j].getText()))
+                if(MenuController.getCopy().get(i, j) != Integer.parseInt(textFields[i][j].getText()))
                 {
                     System.out.println("Przegrales");
                     return false;
@@ -82,6 +80,7 @@ public class SudokuController {
         this.mainController = mainController;
     }
 
+    //////////////////////////////////Wyciąganie pojedynczych TextFieldow z GridPane////////////////////////////////////
     public TextField getCell(int col, int row, GridPane gridPane) {
         for (Node node : gridPane.getChildren()) {
             if(GridPane.getColumnIndex(node) != null && GridPane.getRowIndex(node) != null) {

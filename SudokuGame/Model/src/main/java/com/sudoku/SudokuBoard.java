@@ -108,12 +108,6 @@ public class SudokuBoard implements Serializable, Cloneable {
         return new SudokuBox(box);
     }
 
-   /* @Override
-    public String toString(){
-        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append("Board",this.sudokuField).toString();
-
-    }*/
-
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).append("sudokuField", sudokuField).toString();
@@ -140,14 +134,20 @@ public class SudokuBoard implements Serializable, Cloneable {
     }
 
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public SudokuBoard clone(){
+        SudokuBoard copy = new SudokuBoard(10);
+        for(int i = 0; i < 9; i++)
+        {
+            for(int j = 0; j < 9; j++)
+            {
+                copy.set(i, j, this.get(i, j));
+            }
+        }
+        return copy;
     }
 
 
     public static void main(final String[] args) {
-
-
 
         SudokuBoard sudokuBoard = new SudokuBoard(4);
 
@@ -173,9 +173,5 @@ public class SudokuBoard implements Serializable, Cloneable {
             System.out.println();
 
         }
-
-        //String a=sudokuBoard.toString();
-        // int b=sudokuBoard.hashCode();
-        //System.out.println(sudokuBoard.toString());
     }
 }
