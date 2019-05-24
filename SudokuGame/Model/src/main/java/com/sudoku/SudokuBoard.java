@@ -134,12 +134,10 @@ public class SudokuBoard implements Serializable, Cloneable {
     }
 
     @Override
-    public SudokuBoard clone(){
+    public SudokuBoard clone() {
         SudokuBoard copy = new SudokuBoard(10);
-        for(int i = 0; i < 9; i++)
-        {
-            for(int j = 0; j < 9; j++)
-            {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
                 copy.set(i, j, this.get(i, j));
             }
         }

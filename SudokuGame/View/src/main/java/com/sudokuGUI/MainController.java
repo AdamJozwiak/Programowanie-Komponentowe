@@ -13,7 +13,7 @@ public class MainController {
     private StackPane stackPane;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         menuScreen();
     }
 
@@ -36,7 +36,7 @@ public class MainController {
 
     ///////////////////////////////////////////////Zmiana ekranu////////////////////////////////////////////////////////
 
-    public void setScreen(Pane pane) {
+    public void setScreen(final Pane pane) {
         stackPane.getChildren().clear();
         stackPane.getChildren().add(pane);
     }

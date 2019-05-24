@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sudokuGUI.MenuController">
    <children>
-      <MenuButton alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="170.0" layoutY="172.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="261.0" text="Wybierz Poziom Trudności" textAlignment="CENTER">
+      <MenuButton alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="170.0" layoutY="118.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="57.0" prefWidth="261.0" text="Wybierz Poziom Trudności" textAlignment="CENTER">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#latwy" text="Łatwy" />
           <MenuItem mnemonicParsing="false" onAction="#sredni" text="Średni" />
@@ -19,15 +20,22 @@
             <Font name="System Bold Italic" size="17.0" />
          </font>
       </MenuButton>
-      <Label layoutX="162.0" layoutY="78.0" prefHeight="77.0" prefWidth="286.0" text="Sudoku Solver" textAlignment="CENTER">
+      <Label layoutX="158.0" layoutY="34.0" prefHeight="77.0" prefWidth="286.0" text="Sudoku Solver" textAlignment="CENTER">
          <font>
             <Font name="DejaVu Sans Bold" size="35.0" />
          </font>
       </Label>
-      <Button layoutX="260.0" layoutY="269.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="81.0" text="Wyjście" textAlignment="CENTER">
+      <Button layoutX="260.0" layoutY="326.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="81.0" text="Wyjście" textAlignment="CENTER" textFill="#e40f0f">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
+      <TextField fx:id="textID" alignment="CENTER" layoutX="170.0" layoutY="234.0" prefHeight="25.0" prefWidth="261.0" />
+      <Label alignment="CENTER" layoutX="170.0" layoutY="207.0" prefHeight="17.0" prefWidth="261.0" text="Podaj scieżkę do odczytu" textAlignment="CENTER" textFill="#2988e1">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Button layoutX="272.0" layoutY="266.0" mnemonicParsing="false" onAction="#read" text="Wczytaj" />
    </children>
 </Pane>

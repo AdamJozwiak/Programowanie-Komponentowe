@@ -1,5 +1,6 @@
 package com.sudoku;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -16,9 +17,6 @@ public class SudokuBoardTest {
         sudokuSolver.solve(sudokuBoard);
 
         assertTrue(sudokuBoard.checkBoard());
-        //sudokuBoardDaoFactory.getFileDao("C:\\Users\\Michał\\Desktop\\xd.txt").write(sudokuBoard);
-       //int b=sudokuBoard.hashCode();
-       // System.out.println(sudokuBoard.toString());
     }
     @Test
     public void toStringTest(){

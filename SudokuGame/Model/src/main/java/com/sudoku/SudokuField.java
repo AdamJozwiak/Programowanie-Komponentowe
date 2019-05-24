@@ -34,8 +34,14 @@ public class SudokuField implements Cloneable, Comparable, Serializable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        return 1;
-        //???????????????????????????????????????????????
+    public int compareTo(final Object o) {
+        SudokuField s = (SudokuField) o;
+        if (this.value == s.value) {
+            return 0;
+        } else if (this.value > s.value) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

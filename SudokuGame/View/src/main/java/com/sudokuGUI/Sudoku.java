@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 public class Sudoku extends Application {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(final Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/MainScreen.fxml"));
         StackPane stackPane = loader.load();
         Scene scene = new Scene(stackPane);

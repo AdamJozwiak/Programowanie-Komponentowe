@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import com.sudoku.*;
+
+import java.awt.*;
 import java.io.IOException;
 
 public class MenuController {
@@ -12,6 +14,9 @@ public class MenuController {
     private MainController mainController;
     private static SudokuBoard sudokuBoard;
     private static SudokuBoard copy;
+
+    @FXML
+    private javafx.scene.control.TextField textID;
 
     ///////////////////////////////////////////Wybor poziomu trudnosci//////////////////////////////////////////////////
 
@@ -36,6 +41,13 @@ public class MenuController {
         Trudny trudny = new Trudny();
         sudokuBoard = trudny.trudny();
         copy = trudny.getCopy();
+        loadSudoku();
+    }
+
+    @FXML
+    public void read() {
+        FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(this.textID.getText());
+        sudokuBoard = fileSudokuBoardDao.read();
         loadSudoku();
     }
 
@@ -67,7 +79,8 @@ public class MenuController {
         return copy;
     }
 
-    public void setMainController(MainController mainController) {
+    public void setMainController(final MainController mainController) {
         this.mainController = mainController;
     }
+
 }

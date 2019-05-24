@@ -23,7 +23,7 @@ public class PoziomTrudnosciTest {
                 }
             }
         }
-        Assert.assertEquals(pom, 20);
+        Assert.assertEquals(20, pom);
 
         BacktrackingSudokuSolver solver = new BacktrackingSudokuSolver();
 
