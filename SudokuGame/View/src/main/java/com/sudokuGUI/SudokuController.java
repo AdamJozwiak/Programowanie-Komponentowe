@@ -3,16 +3,16 @@ package com.sudokuGUI;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import com.sudoku.*;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-import java.io.IOException;
+import java.util.Optional;
 
 public class SudokuController {
 
@@ -82,31 +82,37 @@ public class SudokuController {
                 if (textFields[i][j].getText().equals("")) {
                     textFields[i][j].setText("0");
                 }
-                sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
+
+                ////////////////////////////Sprawdzanie czy w pola sa wpisane odpowiednie wartosci///////////////////////////////
+                try {
+                    if (textFields[i][j].getLength() > 1) {
+                        errorBox("Błąd komorki", "Zakres liczb do wpisania to 0-9");
+                    }
+                    //Jesli tak, to do SudokuBoarda jest wpisywana wartosc z TextFielda
+                    sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
+                } catch (NumberFormatException e) {
+                    errorBox("Błąd komorki", "Do komorek nalezy wpisywac tylko liczby calkowite");
+                }
 
                 if (sudokuBoard.get(i, j) == 0) {
-                    System.out.println("Przegrales");
+                    errorBox("Błąd komórki", "Pozostawiłeś puste pola");
                     return false;
                 }
             }
         }
 
         if (sudokuBoard.checkBoard()) {
-            System.out.println("Wygrales");
+            winnerBox();
             return true;
         }
 
-        System.out.println("Przegrales");
+        loserBox();
         return false;
     }
 
     @FXML
     public void exit() {
         Platform.exit();
-    }
-
-    public void setMainController(final MainController mainController) {
-        this.mainController = mainController;
     }
 
     //////////////////////////////////Wyciąganie pojedynczych TextFieldow z GridPane////////////////////////////////////
@@ -122,15 +128,14 @@ public class SudokuController {
     }
 
     ////////////////////////////////////////////Zapisywanie do pliku////////////////////////////////////////////////////
+    @FXML
     public void save() {
         TextField[][] textFields = new TextField[9][9];
-
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 textFields[i][j] = getCell(i, j, gridPane);
             }
         }
-
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (textFields[i][j].getText().equals("")) {
@@ -140,19 +145,50 @@ public class SudokuController {
             }
         }
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/AlertBox.fxml"));
-
-        try {
-            Pane pane = loader.load();
-            mainController.setScreen(pane);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        AlertBoxController alertBoxController = loader.getController();
-        alertBoxController.setMainController(mainController);
+        alertBox();
+        Platform.exit();
     }
 
-    public SudokuBoard getSudokuBoard() {
-        return sudokuBoard;
+    //////////////////////////////////////////////////////AlertBoxy/////////////////////////////////////////////////////
+
+    public void alertBox() {
+        TextInputDialog alert = new TextInputDialog();
+        alert.setTitle("Save Sudoku");
+        alert.setHeaderText(null);
+        alert.setContentText("Podaj ścieżkę do zapisu");
+        alert.getDialogPane().setPrefSize(380, 120);
+
+        Optional<String> result = alert.showAndWait();
+        if (result.isPresent()) {
+            FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(result.get());
+            fileSudokuBoardDao.write(sudokuBoard);
+        }
+    }
+
+    public void errorBox(String titleTxt, String headerTxt) {
+        Alert error = new Alert(Alert.AlertType.ERROR);
+        error.setTitle(titleTxt);
+        error.setHeaderText(headerTxt);
+        error.showAndWait();
+    }
+
+    public void winnerBox() {
+        Alert win = new Alert(Alert.AlertType.CONFIRMATION);
+        win.setTitle("Wygraleś!");
+        win.setHeaderText("Gratulacje, poprawnie rozwiązałeś Sudoku!");
+        win.showAndWait();
+    }
+
+    public void loserBox() {
+        Alert lose = new Alert(Alert.AlertType.CONFIRMATION);
+        lose.setTitle("Przegrałeś :(");
+        lose.setHeaderText("We'll get 'em next time!");
+        lose.showAndWait();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void setMainController(final MainController mainController) {
+        this.mainController = mainController;
     }
 }
