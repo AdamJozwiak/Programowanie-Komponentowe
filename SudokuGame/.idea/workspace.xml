@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aaf363d2-8f2b-449c-be5f-20cc0801cdb1" name="Default Changelist" comment="Zle dobrego poczatki - JavaFX">
-      <change afterPath="$PROJECT_DIR$/View/src/main/java/com/resources/Resources.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/src/main/java/com/resources/Resources_pl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/src/main/resources/bundles/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View/src/main/resources/bundles/messages_pl.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="aaf363d2-8f2b-449c-be5f-20cc0801cdb1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/AlertBoxController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sudoku.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sudoku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/SudokuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/SudokuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/resources/AlertBox.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/resources/MainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/resources/MainScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/resources/MenuScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/resources/MenuScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/resources/SudokuScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/resources/SudokuScreen.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Model/target/" />
     <ignored path="$PROJECT_DIR$/View/target/" />
@@ -36,23 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sudoku.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/SudokuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="102" column="46" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
+            <state relative-caret-position="357">
+              <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,12 +84,10 @@
         <option value="$PROJECT_DIR$/View/src/main/resources/AlertBoxScreen.fxml" />
         <option value="$PROJECT_DIR$/View/src/main/resources/AlertBox.fxml" />
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/AlertBoxController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/View/src/main/resources/bundles/messages_pl.properties" />
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MainController.java" />
         <option value="$PROJECT_DIR$/View/src/main/resources/MenuScreen.fxml" />
         <option value="$PROJECT_DIR$/View/src/main/resources/SudokuScreen.fxml" />
-        <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sudoku.java" />
         <option value="$PROJECT_DIR$/View/src/main/resources/bundles/messages.properties" />
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MyResources.java" />
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Resources_ENG.java" />
@@ -121,7 +95,10 @@
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Resources_pl.java" />
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Resources.java" />
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MenuController.java" />
+        <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sudoku.java" />
         <option value="$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/SudokuController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/View/src/main/java/com/resources/Resources_pl.java" />
       </list>
     </option>
   </component>
@@ -163,8 +140,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,90 +150,14 @@
             <path>
               <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="sudokuGUI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="bundles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SudokuGameProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SudokuGame" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="bundles" type="462c0819:PsiDirectoryNode" />
-              <item name="Resource Bundle 'messages'" type="a6c14932:ResourceBundleNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,7 +264,9 @@
       <workItem from="1558307142122" duration="206000" />
       <workItem from="1558703815194" duration="7284000" />
       <workItem from="1558785618117" duration="9871000" />
-      <workItem from="1558874813766" duration="10822000" />
+      <workItem from="1558874813766" duration="11411000" />
+      <workItem from="1558889785215" duration="247000" />
+      <workItem from="1558894505840" duration="2100000" />
     </task>
     <task id="LOCAL-00001" summary="Zle dobrego poczatki - JavaFX">
       <created>1558224794590</created>
@@ -395,11 +296,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558793076819</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Działające GUI z przełączaniem języka">
+      <created>1558887873793</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1558887873793</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74858000" />
+    <option name="totallyTimeSpent" value="77794000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,7 +322,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16257995" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16577825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -442,7 +350,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.32995737" />
-      <window_info anchor="right" id="Maven" order="8" weight="0.09968017" />
+      <window_info anchor="right" id="Maven" order="8" visible="true" weight="0.09968017" />
       <window_info anchor="right" id="Database" order="9" />
     </layout>
     <layout-to-restore>
@@ -486,7 +394,8 @@
     <MESSAGE value="Brak sprawdzania" />
     <MESSAGE value="Pierwsze GUI" />
     <MESSAGE value="Weryfikacja pol i zapis/odczyt do/z pliku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Weryfikacja pol i zapis/odczyt do/z pliku" />
+    <MESSAGE value="Działające GUI z przełączaniem języka" />
+    <option name="LAST_COMMIT_MESSAGE" value="Działające GUI z przełączaniem języka" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -540,13 +449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/resources/LoadedScreen.fxml" />
     <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/LoadedController.java" />
     <entry file="file://$PROJECT_DIR$/Model/src/test/java/com/sudoku/SudokuBoardTest.java">
@@ -556,27 +458,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/src/main/java/com/sudoku/FileSudokuBoardDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/resources/AlertBoxScreen.fxml" />
     <entry file="file://$PROJECT_DIR$/View/src/main/resources/AlertBox.fxml" />
     <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/AlertBoxController.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/src/main/java/com/sudoku/SudokuBoard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-859">
@@ -665,20 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sredni.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Latwy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/resources/bundles/messages_pl.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -688,27 +558,12 @@
       <provider editor-type-id="ResourceBundle" />
     </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/resources/SudokuScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="43" column="82" lean-forward="true" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/resources/bundles/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="14" selection-start-line="23" selection-end-line="23" selection-end-column="14" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/resources/Resources_pl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/java/com/resources/Resources.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -717,10 +572,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/View/src/main/resources/MainScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/PoziomTrudnosci.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/src/main/resources/MenuScreen.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/src/main/java/com/sudoku/FileSudokuBoardDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding>
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/src/main/resources/bundles/messages.properties">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="14" selection-start-line="23" selection-end-line="23" selection-end-column="14" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Latwy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
-          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#328#329#0" expanded="true" />
@@ -731,54 +635,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="841">
           <caret line="75" column="71" selection-start-line="75" selection-start-column="71" selection-end-line="75" selection-end-column="71" />
           <folding>
+            <element signature="e#2197#2198#0" expanded="true" />
             <element signature="e#2228#2229#0" expanded="true" />
+            <element signature="e#2966#2967#0" expanded="true" />
             <element signature="e#3000#3001#0" expanded="true" />
+            <element signature="e#3043#3044#0" expanded="true" />
             <element signature="e#3070#3071#0" expanded="true" />
+            <element signature="e#3144#3145#0" expanded="true" />
             <element signature="e#3196#3197#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/resources/MainScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sredni.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/PoziomTrudnosci.java">
+    <entry file="file://$PROJECT_DIR$/View/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        <state relative-caret-position="119">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/resources/MenuScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        <state relative-caret-position="2210">
+          <caret line="130" column="21" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sudoku.java">
+    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/resources/Resources_pl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/SudokuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="102" column="46" selection-start-line="102" selection-start-column="46" selection-end-line="102" selection-end-column="46" />
+        <state relative-caret-position="2881">
+          <caret line="177" column="54" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7367#7368#0" expanded="true" />
+            <element signature="e#7419#7420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/src/main/java/com/sudokuGUI/Sudoku.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

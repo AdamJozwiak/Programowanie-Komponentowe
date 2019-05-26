@@ -146,7 +146,12 @@ public class SudokuController {
                 if (textFields[i][j].getText().equals("")) {
                     textFields[i][j].setText("0");
                 }
-                this.sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
+                try {
+                    this.sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
+                } catch (NumberFormatException e) {
+                    errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.forbidden.char"));
+                    return;
+                }
             }
         }
 
@@ -170,7 +175,7 @@ public class SudokuController {
         }
     }
 
-    public void errorBox(String titleTxt, String headerTxt) {
+    public void errorBox(final String titleTxt, final String headerTxt) {
         Alert error = new Alert(Alert.AlertType.ERROR);
         error.setTitle(titleTxt);
         error.setHeaderText(headerTxt);
