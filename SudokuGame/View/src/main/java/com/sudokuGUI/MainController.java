@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class MainController {
 
@@ -20,7 +21,9 @@ public class MainController {
     ///////////////////////////////////Zaladowanie ekranu menu z pliku fxml/////////////////////////////////////////////
 
     public void menuScreen() {
+        ResourceBundle bundle = ResourceBundle.getBundle("bundles.messages");
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/MenuScreen.fxml"));
+        loader.setResources(bundle);
         Pane pane = null;
         try {
             pane = loader.load();
@@ -30,7 +33,6 @@ public class MainController {
 
         MenuController menuController = loader.getController();
         menuController.setMainController(this);
-
         setScreen(pane);
     }
 

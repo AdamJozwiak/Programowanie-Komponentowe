@@ -13,11 +13,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class SudokuController {
 
     private MainController mainController;
     private SudokuBoard sudokuBoard = new SudokuBoard(0);
+    private ResourceBundle bundle = ResourceBundle.getBundle("bundles.messages");
 
     @FXML
     private GridPane gridPane;
@@ -86,16 +88,19 @@ public class SudokuController {
                 ////////////////////////////Sprawdzanie czy w pola sa wpisane odpowiednie wartosci///////////////////////////////
                 try {
                     if (textFields[i][j].getLength() > 1) {
-                        errorBox("Błąd komorki", "Zakres liczb do wpisania to 0-9");
+                        errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.range"));
+                        return false;
                     }
                     //Jesli tak, to do SudokuBoarda jest wpisywana wartosc z TextFielda
                     sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
                 } catch (NumberFormatException e) {
-                    errorBox("Błąd komorki", "Do komorek nalezy wpisywac tylko liczby calkowite");
+                    errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.forbidden.char"));
+                    return false;
                 }
 
                 if (sudokuBoard.get(i, j) == 0) {
-                    errorBox("Błąd komórki", "Pozostawiłeś puste pola");
+                    errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.empty.cell"));
+                    textFields[i][j].setText("");
                     return false;
                 }
             }
@@ -153,9 +158,9 @@ public class SudokuController {
 
     public void alertBox() {
         TextInputDialog alert = new TextInputDialog();
-        alert.setTitle("Save Sudoku");
+        alert.setTitle(bundle.getString("alertbox.title"));
         alert.setHeaderText(null);
-        alert.setContentText("Podaj ścieżkę do zapisu");
+        alert.setContentText(bundle.getString("alertbox.path"));
         alert.getDialogPane().setPrefSize(380, 120);
 
         Optional<String> result = alert.showAndWait();
@@ -174,15 +179,15 @@ public class SudokuController {
 
     public void winnerBox() {
         Alert win = new Alert(Alert.AlertType.CONFIRMATION);
-        win.setTitle("Wygraleś!");
-        win.setHeaderText("Gratulacje, poprawnie rozwiązałeś Sudoku!");
+        win.setTitle(bundle.getString("win.title"));
+        win.setHeaderText(bundle.getString("win.alert"));
         win.showAndWait();
     }
 
     public void loserBox() {
         Alert lose = new Alert(Alert.AlertType.CONFIRMATION);
-        lose.setTitle("Przegrałeś :(");
-        lose.setHeaderText("We'll get 'em next time!");
+        lose.setTitle(bundle.getString("lose.title"));
+        lose.setHeaderText(bundle.getString("lose.alert"));
         lose.showAndWait();
     }
 

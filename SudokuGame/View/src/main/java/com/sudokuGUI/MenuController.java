@@ -1,19 +1,25 @@
 package com.sudokuGUI;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import com.sudoku.*;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class MenuController {
 
     private MainController mainController;
     private static SudokuBoard sudokuBoard;
     private static SudokuBoard copy;
+    private Locale pl = new Locale("pl");
+    private Locale eng = new Locale("en");
 
     @FXML
     private javafx.scene.control.TextField textID;
@@ -52,6 +58,29 @@ public class MenuController {
     }
 
     @FXML
+    public void langChange() {
+        if (Locale.getDefault().equals(eng)) {
+            Locale.setDefault(pl);
+            mainController.initialize();
+            return;
+        }
+
+        if (Locale.getDefault().equals(pl)) {
+            Locale.setDefault(eng);
+            mainController.initialize();
+        }
+    }
+
+    @FXML
+    public void credits() {
+        ResourceBundle bundle = ResourceBundle.getBundle("com.resources.Resources");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(bundle.getString("title"));
+        alert.setHeaderText(bundle.getString("authors"));
+        alert.showAndWait();
+    }
+
+    @FXML
     public void exit() {
         Platform.exit();
     }
@@ -59,8 +88,9 @@ public class MenuController {
     ////////////////////////////////////////////Zaladowanie ekranu gry//////////////////////////////////////////////////
 
     public void loadSudoku() {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("bundles.messages");
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/SudokuScreen.fxml"));
-
+        loader.setResources(resourceBundle);
         try {
             Pane pane = loader.load();
             mainController.setScreen(pane);
@@ -82,5 +112,4 @@ public class MenuController {
     public void setMainController(final MainController mainController) {
         this.mainController = mainController;
     }
-
 }
