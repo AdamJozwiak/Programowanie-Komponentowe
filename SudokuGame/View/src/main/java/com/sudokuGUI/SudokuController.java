@@ -14,6 +14,7 @@ import javafx.scene.text.FontWeight;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class SudokuController {
 
@@ -135,6 +136,7 @@ public class SudokuController {
     ////////////////////////////////////////////Zapisywanie do pliku////////////////////////////////////////////////////
     @FXML
     public void save() {
+        Logger.getLogger("Sudoku").info("Zapisywanie...");
         TextField[][] textFields = new TextField[9][9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -148,10 +150,13 @@ public class SudokuController {
                 }
                 try {
                     this.sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
+
                 } catch (NumberFormatException e) {
+                    Logger.getLogger("Sudoku").info("Zapisywanie nie powiodlo sie");
                     errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.forbidden.char"));
                     return;
                 }
+                Logger.getLogger("Sudoku").info("Zapisywanie powiodlo sie");
             }
         }
 
@@ -176,6 +181,7 @@ public class SudokuController {
     }
 
     public void errorBox(final String titleTxt, final String headerTxt) {
+        Logger.getLogger("Sudoku").info("Blad");
         Alert error = new Alert(Alert.AlertType.ERROR);
         error.setTitle(titleTxt);
         error.setHeaderText(headerTxt);
@@ -183,6 +189,7 @@ public class SudokuController {
     }
 
     public void winnerBox() {
+        Logger.getLogger("Sudoku").info("Wygrana");
         Alert win = new Alert(Alert.AlertType.CONFIRMATION);
         win.setTitle(bundle.getString("win.title"));
         win.setHeaderText(bundle.getString("win.alert"));
@@ -190,6 +197,7 @@ public class SudokuController {
     }
 
     public void loserBox() {
+        Logger.getLogger("Sudoku").info("Przegrana");
         Alert lose = new Alert(Alert.AlertType.CONFIRMATION);
         lose.setTitle(bundle.getString("lose.title"));
         lose.setHeaderText(bundle.getString("lose.alert"));
