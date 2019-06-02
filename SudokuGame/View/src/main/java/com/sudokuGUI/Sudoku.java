@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.*;
@@ -21,7 +20,6 @@ public class Sudoku extends Application {
     @Override
     public void start(final Stage primaryStage) throws Exception {
         Loggery loggery=new Loggery();
-
         Logger.getLogger("Sudoku").info("Start");
 
         Locale.setDefault(new Locale("pl"));

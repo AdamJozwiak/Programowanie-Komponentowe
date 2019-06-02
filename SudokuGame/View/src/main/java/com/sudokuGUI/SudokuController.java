@@ -1,5 +1,9 @@
 package com.sudokuGUI;
 
+import com.myExceptions.CellErrorException;
+import com.myExceptions.EmptySpaceException;
+import com.myExceptions.ForbiddenCharException;
+import com.myExceptions.TooLongException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import com.sudoku.*;
@@ -11,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import sun.rmi.runtime.Log;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -55,6 +60,7 @@ public class SudokuController {
     ///////////////////////////////Sprawdzanie, czy wypelnione sudoku jest poprawne/////////////////////////////////////
     @FXML
     public boolean solve() {
+        Logger.getLogger("Sudoku").warning(bundle.getString("log.sudoku.correctness"));
         TextField[][] textFields = new TextField[9][9];
         SudokuBoard sudokuBoard = new SudokuBoard(0);
 
@@ -63,6 +69,7 @@ public class SudokuController {
                 textFields[i][j] = getCell(i, j, gridPane);
             }
         }
+
 
         ///////////////////////////////Metoda sprawdzajaca poprawnosc za pomoca kopii///////////////////////////////////
 
@@ -78,46 +85,65 @@ public class SudokuController {
         System.out.println("Wygrales");
         return true;*/
 
-        ////////////////////////Metoda sprawdzajaca poprawnosc za pomoca metody z SudokuBoard///////////////////////////
+        /////////////////////////////////Wylapywanie wyjatkow i wypisywanie logow///////////////////////////////////////
+       try {
+           check(textFields);
 
+       } catch (EmptySpaceException | ForbiddenCharException | TooLongException e) {
+           Logger.getLogger("Sudoku").severe(e.getMessage());
+           return false;
+
+       } catch (CellErrorException e) {
+           e.printStackTrace();
+           return false;
+       }
+
+        ////////////////////////Metoda sprawdzajaca poprawnosc za pomoca metody z SudokuBoard///////////////////////////
+        if (sudokuBoard.checkBoard()) {
+            Logger.getLogger("Sudoku").info(bundle.getString("log.correct.sudoku"));
+            winnerBox();
+            return true;
+        }
+
+        Logger.getLogger("Sudoku").info(bundle.getString("log.wrong.sudoku"));
+        loserBox();
+        return false;
+    }
+
+
+    //////////////////////////////////////Metoda sprawdzajaca i throwujaca wyjatki//////////////////////////////////////
+    public void check(TextField[][] textFields) throws CellErrorException{
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (textFields[i][j].getText().equals("")) {
                     textFields[i][j].setText("0");
                 }
 
-                ////////////////////////////Sprawdzanie czy w pola sa wpisane odpowiednie wartosci///////////////////////////////
+    ////////////////////////////////Sprawdzanie czy w pola sa wpisane odpowiednie wartosci//////////////////////////////
                 try {
                     if (textFields[i][j].getLength() > 1) {
                         errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.range"));
-                        return false;
+                        throw new TooLongException(bundle.getString("cell.error.range"), new Exception());
                     }
                     //Jesli tak, to do SudokuBoarda jest wpisywana wartosc z TextFielda
                     sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
                 } catch (NumberFormatException e) {
                     errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.forbidden.char"));
-                    return false;
+                    throw new ForbiddenCharException(bundle.getString("cell.error.forbidden.char"), new NumberFormatException());
                 }
 
                 if (sudokuBoard.get(i, j) == 0) {
                     errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.empty.cell"));
                     textFields[i][j].setText("");
-                    return false;
+                    throw new EmptySpaceException(bundle.getString("cell.error.empty.cell"), new NullPointerException());
                 }
             }
         }
-
-        if (sudokuBoard.checkBoard()) {
-            winnerBox();
-            return true;
-        }
-
-        loserBox();
-        return false;
     }
 
     @FXML
     public void exit() {
+        Logger.getLogger("Sudoku").info(bundle.getString("log.incorrect.save"));
         Platform.exit();
     }
 
@@ -136,7 +162,7 @@ public class SudokuController {
     ////////////////////////////////////////////Zapisywanie do pliku////////////////////////////////////////////////////
     @FXML
     public void save() {
-        Logger.getLogger("Sudoku").info("Zapisywanie...");
+        Logger.getLogger("Sudoku").info(bundle.getString("log.saving"));
         TextField[][] textFields = new TextField[9][9];
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -150,23 +176,32 @@ public class SudokuController {
                 }
                 try {
                     this.sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
-
                 } catch (NumberFormatException e) {
-                    Logger.getLogger("Sudoku").info("Zapisywanie nie powiodlo sie");
                     errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.forbidden.char"));
                     return;
                 }
-                Logger.getLogger("Sudoku").info("Zapisywanie powiodlo sie");
             }
         }
+        Logger.getLogger("Sudoku").info(bundle.getString("log.correct.save"));
+        if(alertBox())
+        {
+            Logger.getLogger("Sudoku").info(bundle.getString("log.file.saved"));
+            Platform.exit();
+        }
+        Logger.getLogger("Sudoku").warning(bundle.getString("log.incorrect.save"));
 
-        alertBox();
-        Platform.exit();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (textFields[i][j].getText().equals("0")) {
+                    textFields[i][j].setText("");
+                }
+            }
+        }
     }
 
     //////////////////////////////////////////////////////AlertBoxy/////////////////////////////////////////////////////
 
-    public void alertBox() {
+    public boolean alertBox() {
         TextInputDialog alert = new TextInputDialog();
         alert.setTitle(bundle.getString("alertbox.title"));
         alert.setHeaderText(null);
@@ -177,11 +212,12 @@ public class SudokuController {
         if (result.isPresent()) {
             FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(result.get());
             fileSudokuBoardDao.write(sudokuBoard);
+            return true;
         }
+        return false;
     }
 
     public void errorBox(final String titleTxt, final String headerTxt) {
-        Logger.getLogger("Sudoku").info("Blad");
         Alert error = new Alert(Alert.AlertType.ERROR);
         error.setTitle(titleTxt);
         error.setHeaderText(headerTxt);
@@ -189,7 +225,6 @@ public class SudokuController {
     }
 
     public void winnerBox() {
-        Logger.getLogger("Sudoku").info("Wygrana");
         Alert win = new Alert(Alert.AlertType.CONFIRMATION);
         win.setTitle(bundle.getString("win.title"));
         win.setHeaderText(bundle.getString("win.alert"));
@@ -197,7 +232,6 @@ public class SudokuController {
     }
 
     public void loserBox() {
-        Logger.getLogger("Sudoku").info("Przegrana");
         Alert lose = new Alert(Alert.AlertType.CONFIRMATION);
         lose.setTitle(bundle.getString("lose.title"));
         lose.setHeaderText(bundle.getString("lose.alert"));
