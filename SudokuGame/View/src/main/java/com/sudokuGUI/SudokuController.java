@@ -15,8 +15,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import myExceptions.DataException;
+import myExceptions.FileException;
 import sun.rmi.runtime.Log;
 
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -62,7 +65,6 @@ public class SudokuController {
     public boolean solve() {
         Logger.getLogger("Sudoku").warning(bundle.getString("log.sudoku.correctness"));
         TextField[][] textFields = new TextField[9][9];
-        SudokuBoard sudokuBoard = new SudokuBoard(0);
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
@@ -183,7 +185,7 @@ public class SudokuController {
             }
         }
         Logger.getLogger("Sudoku").info(bundle.getString("log.correct.save"));
-        if(alertBox())
+        if(SqlAlertBox())
         {
             Logger.getLogger("Sudoku").info(bundle.getString("log.file.saved"));
             Platform.exit();
@@ -211,8 +213,27 @@ public class SudokuController {
         Optional<String> result = alert.showAndWait();
         if (result.isPresent()) {
             FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(result.get());
-            fileSudokuBoardDao.write(sudokuBoard);
+            try{
+                fileSudokuBoardDao.write(sudokuBoard);
+            } catch (FileException e) {
+                e.getMessage();
+            }
             return true;
+        }
+        return false;
+    }
+
+    public boolean SqlAlertBox() {
+        Alert sql = new Alert(Alert.AlertType.INFORMATION);
+        sql.setTitle(bundle.getString("alertbox.title"));
+        sql.setHeaderText("Zapisano do bazy danych");
+
+        JdbcSudokuBoardDao jdbc = new JdbcSudokuBoardDao("Sudoku1");
+        try {
+            jdbc.write(sudokuBoard);
+            return true;
+        } catch (DataException e) {
+            e.printStackTrace();
         }
         return false;
     }

@@ -7,9 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 import com.sudoku.*;
+import myExceptions.DataException;
+import myExceptions.FileException;
 
 import java.awt.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -52,8 +55,15 @@ public class MenuController {
 
     @FXML
     public void read() {
-        FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(this.textID.getText());
-        sudokuBoard = fileSudokuBoardDao.read();
+        /*FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(this.textID.getText());
+        try{
+            sudokuBoard = fileSudokuBoardDao.read();
+        } catch (FileException e){
+            e.getMessage();
+        }*/
+
+        JdbcSudokuBoardDao jdbc = new JdbcSudokuBoardDao("Sudoku1");
+        sudokuBoard = jdbc.read();
         loadSudoku();
     }
 

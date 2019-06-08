@@ -108,6 +108,18 @@ public class SudokuBoard implements Serializable, Cloneable {
         return new SudokuBox(box);
     }
 
+    public String getBoardString() {
+        StringBuilder str = new StringBuilder();
+        for(int i = 0; i < 9; i++)
+        {
+            for(int k = 0; k < 9; k++)
+            {
+                str.append(sudokuField.get(i).get(k).getFieldValue());
+            }
+        }
+        return str.toString();
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE).append("sudokuField", sudokuField).toString();
