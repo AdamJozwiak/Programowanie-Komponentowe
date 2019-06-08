@@ -13,7 +13,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sudokuGUI.MenuController">
     <children>
-        <MenuButton alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="257.0" layoutY="275.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="84.0" prefWidth="286.0" text="%difficulty.button" textAlignment="CENTER">
+        <MenuButton alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="257.0" layoutY="266.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="84.0" prefWidth="286.0" text="%difficulty.button" textAlignment="CENTER">
             <items>
                 <MenuItem mnemonicParsing="false" onAction="#latwy" text="%easy.mode" />
                 <MenuItem mnemonicParsing="false" onAction="#sredni" text="%medium.mode" />
@@ -31,7 +31,7 @@
             </RadialGradient>
          </textFill>
         </MenuButton>
-        <Label layoutX="257.0" layoutY="114.0" prefHeight="77.0" prefWidth="286.0" text="Sudoku Solver" textAlignment="CENTER">
+        <Label layoutX="257.0" layoutY="124.0" prefHeight="77.0" prefWidth="286.0" text="Sudoku Solver" textAlignment="CENTER">
             <font>
                 <Font name="DejaVu Sans Bold" size="35.0" />
             </font>
@@ -54,21 +54,21 @@
                 <Font size="23.0" />
             </font>
         </Button>
-        <TextField fx:id="textID" alignment="CENTER" layoutX="270.0" layoutY="470.0" prefHeight="25.0" prefWidth="261.0" />
-        <Label alignment="CENTER" layoutX="270.0" layoutY="442.0" prefHeight="17.0" prefWidth="261.0" text="%loadfile.path" textAlignment="CENTER" textFill="#2988e1">
+        <TextField fx:id="textID" alignment="CENTER" layoutX="270.0" layoutY="463.0" prefHeight="25.0" prefWidth="261.0" />
+        <Label alignment="CENTER" layoutX="100.0" layoutY="400.0" prefHeight="63.0" prefWidth="601.0" text="%loadfile.path" textAlignment="CENTER" textFill="#2988e1">
             <font>
                 <Font name="System Bold Italic" size="19.0" />
             </font>
         </Label>
-        <Button layoutX="356.0" layoutY="496.0" mnemonicParsing="false" onAction="#read" prefHeight="37.0" prefWidth="89.0" text="%load.button">
+        <Button layoutX="355.0" layoutY="494.0" mnemonicParsing="false" onAction="#read" prefHeight="42.0" prefWidth="90.0" text="%load.button">
          <font>
             <Font name="System Italic" size="17.0" />
          </font></Button>
-        <Button layoutX="600.0" layoutY="124.0" mnemonicParsing="false" onAction="#langChange" prefHeight="57.0" prefWidth="154.0" text="%language.button" textFill="#27971d">
+        <Button layoutX="603.0" layoutY="134.0" mnemonicParsing="false" onAction="#langChange" prefHeight="57.0" prefWidth="154.0" text="%language.button" textFill="#27971d">
          <font>
             <Font size="17.0" />
          </font></Button>
-      <Button layoutX="47.0" layoutY="124.0" mnemonicParsing="false" onAction="#credits" prefHeight="57.0" prefWidth="154.0" text="%credits.button" textFill="#ae2ac3">
+      <Button layoutX="46.0" layoutY="134.0" mnemonicParsing="false" onAction="#credits" prefHeight="57.0" prefWidth="154.0" text="%credits.button" textFill="#ae2ac3">
          <font>
             <Font size="17.0" />
          </font></Button>

@@ -3,6 +3,7 @@ package com.sudoku;
 import myExceptions.DataException;
 
 import java.sql.*;
+import java.util.ResourceBundle;
 
 public class JdbcSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
 
@@ -11,6 +12,7 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
     private String tableName;
+    private ResourceBundle bundle = ResourceBundle.getBundle("bundles.messages");
     private static final String url = "jdbc:derby:SudokuDatabase;create=true";
 
 
@@ -19,23 +21,22 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     }
 
     @Override
-    public SudokuBoard read() {
+    public SudokuBoard read() throws DataException{
         SudokuBoard sudokuBoard = new SudokuBoard(0);
         String fields = "";
+
         connect();
 
         try {
             preparedStatement = connection.prepareStatement("SELECT fields from SudokuBoards where name=?");
             preparedStatement.setString(1, tableName);
             resultSet = preparedStatement.executeQuery();
-            if(resultSet.next())
-            {
+            if (resultSet.next()) {
                 fields = resultSet.getString(1);
             }
-            for(int i = 0; i < 9; i++) {
-                for(int j = 0; j < 9; j++)
-                {
-                    sudokuBoard.set(i, j, Character.getNumericValue(fields.charAt(i*9+j)));
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    sudokuBoard.set(i, j, Character.getNumericValue(fields.charAt(i * 9 + j)));
                 }
             }
 
@@ -43,8 +44,8 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
 
         }
 
-
         disconnect();
+
         return sudokuBoard;
     }
 
@@ -67,7 +68,7 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
 
     public void update(SudokuBoard obj) {
         try {
-            statement =  connection.createStatement();
+            statement = connection.createStatement();
             preparedStatement = connection.prepareStatement("UPDATE SudokuBoards SET fields = ? WHERE name = ?");
             preparedStatement.setString(1, obj.getBoardString());
             preparedStatement.setString(2, tableName);
@@ -91,50 +92,52 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
         }
     }
 
-    public void connect() {
+    public void connect() throws DataException{
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             connection = DriverManager.getConnection(url);
-        } catch (Exception e)
-        {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new DataException(bundle.getString("data.error.conection"), e);
         }
     }
 
-    public void disconnect() {
-        if(connection != null)
-        {
+    public void disconnect() throws DataException{
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new DataException(bundle.getString("data.error.disconnect"), e);
             }
         }
     }
 
     @Override
     public void close() throws Exception {
-        if(connection != null)
-        {
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                throw new DataException(bundle.getString("data.error.disconnect"), e);
             }
         }
-        if (statement != null)
-        {
+        if (statement != null) {
             statement.close();
         }
 
-        if (preparedStatement != null)
-        {
+        if (preparedStatement != null) {
             preparedStatement.close();
         }
-        if (resultSet != null)
-        {
+        if (resultSet != null) {
             resultSet.close();
         }
+    }
 
+    @Override
+    public void finalize() throws DataException{
+        try {
+            close();
+        } catch (Exception e) {
+            throw new DataException(bundle.getString("data.error.finalize"), e);
+        }
     }
 }

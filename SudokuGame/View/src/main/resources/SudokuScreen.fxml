@@ -41,24 +41,29 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-        <Button layoutX="361.0" layoutY="610.0" mnemonicParsing="false" onAction="#solve" prefHeight="42.0" prefWidth="95.0" text="%check.button" textFill="#11bc25">
+        <Button layoutX="273.0" layoutY="610.0" mnemonicParsing="false" onAction="#solve" prefHeight="42.0" prefWidth="117.0" text="%check.button" textFill="#11bc25">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button layoutX="126.0" layoutY="610.0" mnemonicParsing="false" onAction="#menu" prefHeight="42.0" prefWidth="89.0" text="%menu.button" textFill="#366cda">
+        <Button layoutX="126.0" layoutY="610.0" mnemonicParsing="false" onAction="#menu" prefHeight="42.0" prefWidth="117.0" text="%menu.button" textFill="#366cda">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <MenuButton contentDisplay="BOTTOM" layoutX="557.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="117.0" text="%exit.button" textAlignment="CENTER" textFill="#f51616">
+        <MenuButton alignment="CENTER" contentDisplay="BOTTOM" layoutX="420.0" layoutY="610.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="117.0" text="%save.button" textAlignment="CENTER" textFill="#f51616">
             <items>
-                <MenuItem mnemonicParsing="false" onAction="#save" text="%save.and.exit" />
-                <MenuItem mnemonicParsing="false" onAction="#exit" text="%no.save" />
+                <MenuItem mnemonicParsing="false" onAction="#save" text="%save.to.data.base" />
+                <MenuItem mnemonicParsing="false" onAction="#saveFile" text="%save.to.file" />
             </items>
             <font>
                 <Font size="17.0" />
             </font>
         </MenuButton>
+      <Button alignment="CENTER" layoutX="557.0" layoutY="610.0" mnemonicParsing="false" onAction="#exit" prefHeight="42.0" prefWidth="117.0" text="%exit.button" textFill="#ff1515">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
     </children>
 </Pane>

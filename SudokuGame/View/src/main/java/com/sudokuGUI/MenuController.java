@@ -26,6 +26,7 @@ public class MenuController {
 
     @FXML
     private javafx.scene.control.TextField textID;
+    private SudokuBoardDaoFactory sudokuBoardDaoFactory;
 
     ///////////////////////////////////////////Wybor poziomu trudnosci//////////////////////////////////////////////////
 
@@ -54,16 +55,22 @@ public class MenuController {
     }
 
     @FXML
-    public void read() {
-        /*FileSudokuBoardDao fileSudokuBoardDao = new FileSudokuBoardDao(this.textID.getText());
-        try{
-            sudokuBoard = fileSudokuBoardDao.read();
-        } catch (FileException e){
-            e.getMessage();
-        }*/
+    public void read() throws DataException {
+        SudokuBoardDaoFactory factory = new SudokuBoardDaoFactory();
 
-        JdbcSudokuBoardDao jdbc = new JdbcSudokuBoardDao("Sudoku1");
-        sudokuBoard = jdbc.read();
+        if (this.textID.getText().equals("")) {
+            JdbcSudokuBoardDao jdbc = (JdbcSudokuBoardDao) factory.getBaseDao("Sudoku");
+            sudokuBoard = jdbc.read();
+        }
+
+        else {
+            FileSudokuBoardDao file = (FileSudokuBoardDao) factory.getFileDao(this.textID.getText());
+            try {
+                sudokuBoard = file.read();
+            } catch (FileException e) {
+                e.getMessage();
+            }
+        }
         loadSudoku();
     }
 
