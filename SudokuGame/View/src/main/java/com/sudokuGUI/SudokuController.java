@@ -17,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import myExceptions.DataException;
 import myExceptions.FileException;
+
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -94,7 +95,7 @@ public class SudokuController {
             return false;
 
         } catch (CellErrorException e) {
-            e.printStackTrace();
+            e.getMessage();
             return false;
         }
 
@@ -112,7 +113,7 @@ public class SudokuController {
 
 
     //////////////////////////////////////Metoda sprawdzajaca i throwujaca wyjatki//////////////////////////////////////
-    public void check(TextField[][] textFields) throws CellErrorException {
+    public boolean check(TextField[][] textFields) throws CellErrorException {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (textFields[i][j].getText().equals("")) {
@@ -139,15 +140,16 @@ public class SudokuController {
                 }
             }
         }
+        return true;
     }
 
     @FXML
     public void exit() {
-        Logger.getLogger("Sudoku").info(bundle.getString("log.incorrect.save"));
         Platform.exit();
     }
 
     //////////////////////////////////Wyciąganie pojedynczych TextFieldow z GridPane////////////////////////////////////
+
     public TextField getCell(int col, int row, final GridPane gridPane) {
         for (Node node : gridPane.getChildren()) {
             if (GridPane.getColumnIndex(node) != null && GridPane.getRowIndex(node) != null) {
@@ -165,12 +167,19 @@ public class SudokuController {
     public void saveFile() {
         exctract();
 
-        if (alertBox()) {
-            Logger.getLogger("Sudoku").info(bundle.getString("log.file.saved"));
-            eraseZeros();
-            return;
+        try {
+            if (checkBeforeSave(textFields)) {
+                if (alertBox()) {
+                    Logger.getLogger("Sudoku").info(bundle.getString("log.file.saved"));
+                    eraseZeros();
+                    return;
+                }
+            }
+        } catch (CellErrorException e) {
+            e.getMessage();
         }
 
+        eraseZeros();
         Logger.getLogger("Sudoku").warning(bundle.getString("log.incorrect.save"));
     }
 
@@ -180,12 +189,19 @@ public class SudokuController {
     public void save() {
         exctract();
 
-        if (sqlAlertBox()) {
-            Logger.getLogger("Sudoku").info(bundle.getString("log.data.saved"));
-            eraseZeros();
-            return;
+        try {
+            if (checkBeforeSave(textFields)) {
+                if (sqlAlertBox()) {
+                    Logger.getLogger("Sudoku").info(bundle.getString("log.data.saved"));
+                    eraseZeros();
+                    return;
+                }
+            }
+        } catch (CellErrorException e) {
+            e.getMessage();
         }
 
+        eraseZeros();
         Logger.getLogger("Sudoku").warning(bundle.getString("log.incorrect.save"));
     }
 
@@ -271,7 +287,6 @@ public class SudokuController {
                 try {
                     this.sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
                 } catch (NumberFormatException e) {
-                    errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.forbidden.char"));
                     return;
                 }
             }
@@ -287,5 +302,27 @@ public class SudokuController {
                 }
             }
         }
+    }
+
+    public boolean checkBeforeSave(TextField[][] textFields) throws CellErrorException {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (textFields[i][j].getText().equals("")) {
+                    textFields[i][j].setText("0");
+                }
+                try {
+                    if (textFields[i][j].getLength() > 1) {
+                        errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.range"));
+                        throw new TooLongException(bundle.getString("cell.error.range"), new Exception());
+                    }
+                    sudokuBoard.set(i, j, Integer.parseInt(textFields[i][j].getText()));
+
+                } catch (NumberFormatException e) {
+                    errorBox(bundle.getString("cell.error.title"), bundle.getString("cell.error.forbidden.char"));
+                    throw new ForbiddenCharException(bundle.getString("cell.error.forbidden.char"), new NumberFormatException());
+                }
+            }
+        }
+        return true;
     }
 }
